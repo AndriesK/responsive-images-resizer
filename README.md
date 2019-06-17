@@ -30,8 +30,6 @@ and inside each folder you will find every image in the input folder at their ne
 
 - this package uses GraphicsMagick and as such requires the GraphicsMagick binaries installed and executable from the system PATH
 
-- for now this only works if the outputFolder is empty and not the same value as the inputFolder
-
 ## License
 
 (The MIT License)
