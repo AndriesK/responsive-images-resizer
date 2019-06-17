@@ -19,8 +19,11 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
         }
         resize(imagePaths, sizeArray).then(() => {
                 const redundantFiles = fs.readdirSync(outputFolder);
+                console.log('before delete redundant files');
                 for (let j = 0; j < redundantFiles.length; j++) {
+                    console.log('delete redundant files:', redundantFiles[i]);
                     if (!isDir(outputFolder + "/" + redundantFiles[j])) {
+                        console.log('redundant file not dir, deleting...');
                         fs.unlinkSync(outputFolder + "/" + redundantFiles[j]);
                     }
                 }
