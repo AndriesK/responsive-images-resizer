@@ -26,6 +26,8 @@ and inside each folder you will find every image in the input folder at their ne
 
 ### Note
 
+- should be asynchronous
+
 - this package assumes you want initial aspect ratio
 
 - supports jpeg, png and webp
