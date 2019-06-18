@@ -11,7 +11,7 @@ function: `resizer(inputFolder, outputFolder, resolutionArray)`
 Example: <br />
 
 ```
-const resizer = require('responsive-resizer');
+const resizer = require('responsive-images-resizer');
 resizer('./images', './build', ['144', '360', '720', '1080']);
 ```
 
