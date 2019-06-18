@@ -30,6 +30,8 @@ and inside each folder you will find every image in the input folder at their ne
 
 - this package uses GraphicsMagick and as such requires the GraphicsMagick binaries installed and executable from the system PATH
 
+- for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
+
 ## License
 
 (The MIT License)

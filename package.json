@@ -1,6 +1,6 @@
 {
   "name": "responsive-images-resizer",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Minify and resize images to an array of resolutions",
   "main": "index.js",
   "repository": {
