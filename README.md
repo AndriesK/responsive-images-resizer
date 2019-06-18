@@ -28,7 +28,9 @@ and inside each folder you will find every image in the input folder at their ne
 
 - this package assumes you want initial aspect ratio
 
-- this package uses GraphicsMagick and as such requires the GraphicsMagick binaries installed and executable from the system PATH
+- supports jpeg, png and webp
+
+- this package uses GraphicsMagick and as such requires the GraphicsMagick binaries installed and executable from the system PATH, you can download GraphicsMagick from http://www.graphicsmagick.org/download.html, make sure to choose the right one for your platform
 
 - for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
 
