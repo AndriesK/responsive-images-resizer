@@ -76,25 +76,15 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                         resolve(true);
                     })
                     .catch(err => {
-                        console.log("ERR GM", err);
                         reject(err);
                         return new Error(err);
                     });
             })
             .catch(err => {
-                console.log("abcd");
                 reject(err);
                 return new Error(err);
             });
     });
 }
-
-minifyAndResize("./images", "./build", ["144", "720", "1440"])
-    .then(resp => {
-        console.log("Done!");
-    })
-    .catch(err => {
-        console.log("Err here:", err);
-    });
 
 module.exports = minifyAndResize;
