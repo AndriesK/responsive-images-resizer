@@ -73,7 +73,6 @@ async function resize(absoluteNameArray, sizeArray) {
             })
         }
     })
-
 }
 
 module.exports = resize;
