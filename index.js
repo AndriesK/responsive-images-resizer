@@ -75,18 +75,6 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                         resolve(true);
                     })
                     .catch(err => {
-                        const redundantFiles = fs.readdirSync(outputFolder);
-                        const resFolders = redundantFiles.filter(folder => sizeArray.indexOf(folder) > -1);
-
-                        for (let j = 0; j < redundantFiles.length; j++) {
-                            if (!isDir(outputFolder + "/" + redundantFiles[j]) && IMAGE_PATH_AND_NAMES.indexOf(redundantFiles[j]) > -1) {
-                                fs.unlinkSync(outputFolder + "/" + redundantFiles[j]);
-                            } else if (isDir(outputFolder + "/" + redundantFiles[j]) &&
-                                resFolders.indexOf(redundantFiles[j]) > -1
-                            ) {
-                                fs.rmdirSync(outputFolder + "/" + redundantFiles[j])
-                            }
-                        }
                         reject(err);
                         return new Error(err);
                     });
