@@ -86,19 +86,4 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
     });
 }
 
-minifyAndResize("./images", "./build", [
-        "144",
-        "360",
-        "720",
-        "1080",
-        "1440",
-        "1920"
-    ])
-    .then(() => {
-        console.log("success");
-    })
-    .catch(err => {
-        console.log("Err:", err);
-    });
-
 module.exports = minifyAndResize;
