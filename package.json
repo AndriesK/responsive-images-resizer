@@ -1,6 +1,6 @@
 {
   "name": "responsive-images-resizer",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Minify and resize images to an array of resolutions",
   "main": "index.js",
   "repository": {
@@ -10,13 +10,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["resize", "minify", "responsive resize", "image", "resolution", "resolution resize", "images", "responsive images", "mobile images", "mobile-friendly images", "mass resizer"],
+  "keywords": [
+    "resize",
+    "minify",
+    "responsive resize",
+    "image",
+    "resolution",
+    "resolution resize",
+    "images",
+    "responsive images",
+    "mobile images",
+    "mobile-friendly images",
+    "mass resizer"
+  ],
   "author": "Andries Kloppers",
   "license": "MIT",
   "dependencies": {
-    "gm": "^1.23.1",
     "imagemin": "^6.1.0",
     "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-pngquant": "^8.0.0"
+    "imagemin-pngquant": "^8.0.0",
+    "sharp": "^0.22.1"
   }
 }

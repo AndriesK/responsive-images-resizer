@@ -1,11 +1,12 @@
-const gm = require('gm');
 const path = require('path');
 const createResolutionFolders = require('./lib/createResolutionFolders');
+const sharp = require('sharp');
 
 class workImage {
     constructor(image, sizes) {
         this.image = image;
         this.sizes = sizes;
+        this.extension = image.substring(image.lastIndexOf('.'));
         this.writePath = path.join(image, '..');
         createResolutionFolders(path.join(image, '..'), sizes);
     }
@@ -35,23 +36,16 @@ class workImage {
 
     workImage(size) {
         return new Promise((resolve, reject) => {
-            gm(this.image)
-                .resize(size, size, '^')
-                .write(this.getWritePath(size) + this.getImageName(size), (err) => {
+            sharp(this.image)
+                .resize(parseInt(size, 10))
+                .toFile(this.getWritePath(size) + this.getImageName(size), (err, info) => {
                     if (err) {
                         reject(err);
                     } else {
-                        gm(this.getWritePath(size) + this.getImageName(size)).identify((err, val) => {
-                            if (err) {
-                                reject(err);
-                            } else {
-                                resolve(val);
-                            }
-                        });
+                        resolve(info);
                     }
-                })
+                });
         })
-
     }
 }
 

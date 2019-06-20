@@ -17,24 +17,24 @@ resizer('./images', './build', ['144', '360', '720', '1080']);
 
 this will output to `./build` the folders
 
-- 144/
-- 360/
-- 720/
-- 1080/
+-   144/
+-   360/
+-   720/
+-   1080/
 
 and inside each folder you will find every image in the input folder at their new resolution
 
 ### Note
 
-- should be asynchronous
+-   should be asynchronous
 
-- this package assumes you want initial aspect ratio
+-   this package assumes you want initial aspect ratio
 
-- supports jpeg, png and webp
+-   supports jpeg, png and webp
 
-- this package uses GraphicsMagick and as such requires the GraphicsMagick binaries installed and executable from the system PATH, you can download GraphicsMagick from http://www.graphicsmagick.org/download.html, make sure to choose the right one for your platform
+-   uses sharp for resizing
 
-- for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
+-   for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
 
 ## License
 

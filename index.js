@@ -1,7 +1,6 @@
 const resize = require("./resize");
 const minify = require("./minify");
 const fs = require("fs");
-const path = require("path");
 const isDir = require("./lib/IsDir");
 
 function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
@@ -14,12 +13,12 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
             }
         });
         minify(
-            inputFolder,
-            outputFolder,
-            (options = {
-                allowedFormats: ["jpg", "jpeg", "png", "webp"]
-            })
-        )
+                inputFolder,
+                outputFolder,
+                (options = {
+                    allowedFormats: ["jpg", "jpeg", "png", "webp"]
+                })
+            )
             .then(() => {
                 let IMAGE_PATH_AND_NAMES = fs.readdirSync(outputFolder);
                 let imagePaths = [];
@@ -76,6 +75,18 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                         resolve(true);
                     })
                     .catch(err => {
+                        const redundantFiles = fs.readdirSync(outputFolder);
+                        const resFolders = redundantFiles.filter(folder => sizeArray.indexOf(folder) > -1);
+
+                        for (let j = 0; j < redundantFiles.length; j++) {
+                            if (!isDir(outputFolder + "/" + redundantFiles[j]) && IMAGE_PATH_AND_NAMES.indexOf(redundantFiles[j]) > -1) {
+                                fs.unlinkSync(outputFolder + "/" + redundantFiles[j]);
+                            } else if (isDir(outputFolder + "/" + redundantFiles[j]) &&
+                                resFolders.indexOf(redundantFiles[j]) > -1
+                            ) {
+                                fs.rmdirSync(outputFolder + "/" + redundantFiles[j])
+                            }
+                        }
                         reject(err);
                         return new Error(err);
                     });
@@ -86,5 +97,20 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
             });
     });
 }
+
+minifyAndResize("./images", "./build", [
+        "144",
+        "360",
+        "720",
+        "1080",
+        "1440",
+        "1920"
+    ])
+    .then(() => {
+        console.log("success");
+    })
+    .catch(err => {
+        console.log("Err:", err);
+    });
 
 module.exports = minifyAndResize;
