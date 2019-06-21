@@ -8,7 +8,7 @@
     "url": "https://github.com/AndriesK/responsive-images-resizer.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "keywords": [
     "resize",
@@ -25,10 +25,20 @@
   ],
   "author": "Andries Kloppers",
   "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": ["minify.js", "index.js", "resize.js", "./lib/createResolutionFolders.js", "./lib/IsDir.js"],
   "dependencies": {
     "imagemin": "^6.1.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "sharp": "^0.22.1"
+  },
+  "devDependencies": {
+    "jasmine": "^3.4.0",
+    "jasmine-core": "^3.4.0",
+    "karma": "^4.1.0",
+    "karma-jasmine": "^2.0.1"
   }
 }

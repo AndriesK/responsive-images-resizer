@@ -1,3 +1,7 @@
 node_modules/
 images/
 build/
+spec
+.circleci
+test.js
+lib/jasmine_examples/
