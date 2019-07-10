@@ -67,9 +67,15 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                                     redundantFiles[j]
                                 ) > -1
                             ) {
-                                fs.unlinkSync(
-                                    outputFolder + "/" + redundantFiles[j]
-                                );
+                                try {
+                                    fs.unlinkSync(
+                                        outputFolder + "/" + redundantFiles[j]
+                                    );
+                                } catch (e) {
+                                    reject(e);
+                                    return new Error(e);
+                                }
+
                             }
                         }
                         resolve(true);

@@ -24,7 +24,7 @@ this will output to `./build` the folders
 
 and inside each folder you will find every image in the input folder at their new resolution
 
-### Note
+## Note
 
 -   should be asynchronous
 
