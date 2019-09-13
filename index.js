@@ -17,7 +17,7 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                 inputFolder,
                 outputFolder,
                 (options = {
-                    allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+                    allowedFormats: ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'],
                 }),
             )
             .then(() => {
