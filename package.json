@@ -1,6 +1,6 @@
 {
   "name": "responsive-images-resizer",
-  "version": "1.1.0",
+  "version": "1.1.9",
   "description": "Minify and resize images to an array of resolutions",
   "main": "index.js",
   "repository": {
@@ -15,30 +15,36 @@
     "minify",
     "responsive resize",
     "image",
+    "responsive",
+    "image resizer",
+    "responive image resizer",
+    "resizer",
     "resolution",
     "resolution resize",
     "images",
     "responsive images",
     "mobile images",
     "mobile-friendly images",
-    "mass resizer"
+    "mass",
+    "multiple"
   ],
   "author": "Andries Kloppers",
   "license": "MIT",
   "directories": {
-    "lib": "lib"
+    "lib": "./lib"
   },
-  "files": ["minify.js", "index.js", "resize.js", "./lib/createResolutionFolders.js", "./lib/IsDir.js"],
+  "files": [
+    "minify.js",
+    "index.js",
+    "resize.js",
+    "lib/fileBusy.js",
+    "lib/createResolutionFolders.js",
+    "lib/IsDir.js"
+  ],
   "dependencies": {
-    "imagemin": "^6.1.0",
+    "imagemin": "^7.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "sharp": "^0.22.1"
-  },
-  "devDependencies": {
-    "jasmine": "^3.4.0",
-    "jasmine-core": "^3.4.0",
-    "karma": "^4.1.0",
-    "karma-jasmine": "^2.0.1"
+    "sharp": "^0.23.0"
   }
 }

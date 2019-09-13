@@ -3,8 +3,9 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
 
 async function minify(inputFolder, outputFolder) {
-    return await imagemin([inputFolder], outputFolder, {
-        use: [
+    return await imagemin([inputFolder], {
+        destination: outputFolder,
+        plugins: [
             imageminMozjpeg(),
             imageminPngquant({
                 quality: [0.7, 0.9],
@@ -16,7 +17,7 @@ async function minify(inputFolder, outputFolder) {
 }
 
 function execute(inputFolder, outputFolder, options = {
-    allowedFormats: ['jpg', 'png', 'webp', 'jpeg', "JPG", "JPEG", "PNG", "WEBP"]
+    allowedFormats: ['jpg', 'png', 'webp', 'jpeg', , 'JPG', 'JPEG', 'PNG', 'WEBP']
 }) {
     const FORMATS_MINIFY = options.allowedFormats.join(",");
     const MINIFY_REGEXP = inputFolder + `/*.{${FORMATS_MINIFY}}`;

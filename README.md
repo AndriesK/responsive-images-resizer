@@ -12,29 +12,35 @@ Example: <br />
 
 ```
 const resizer = require('responsive-images-resizer');
-resizer('./images', './build', ['144', '360', '720', '1080']);
+resizer('./images', './build', ['144', '360', '720', '1080'])
+  .then(() => {
+    console.log('Done!');
+  })
+  .catch((err) => {
+    console.log('err:', err);
+  });
 ```
 
 this will output to `./build` the folders
 
--   144/
--   360/
--   720/
--   1080/
+- 144/
+- 360/
+- 720/
+- 1080/
 
 and inside each folder you will find every image in the input folder at their new resolution
 
-### Note
+## Note
 
--   should be asynchronous
+- should be asynchronous
 
--   this package assumes you want initial aspect ratio
+- this package assumes you want initial aspect ratio
 
--   supports jpeg, png and webp
+- supports jpeg, png and webp
 
--   uses sharp for resizing
+- uses sharp for resizing
 
--   for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
+- for minification, this package uses imagemin, imagemin-mozJPEG for jpeg files and imagemin-pngquant for png files
 
 ## License
 
