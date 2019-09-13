@@ -42,6 +42,7 @@
     "lib/IsDir.js"
   ],
   "dependencies": {
+    "fs-extra": "^8.1.0",
     "imagemin": "^7.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",

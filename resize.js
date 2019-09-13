@@ -49,8 +49,10 @@ class workImage {
                     this.getWritePath(size) + this.getImageName(size),
                     (err, info) => {
                         if (err) {
+                            console.log('MONKAWWWWW');
                             reject(err);
                         } else {
+                            console.log('resize done', this.image);
                             resolve(info);
                         }
                     }
@@ -61,6 +63,7 @@ class workImage {
 
 async function resize(absoluteNameArray, sizeArray) {
     let promDone = 0;
+    console.log('absoluteNameArray', absoluteNameArray);
     return await new Promise((resolve, reject) => {
         for (let i = 0; i < absoluteNameArray.length; i++) {
             const work = new workImage(absoluteNameArray[i], sizeArray);
