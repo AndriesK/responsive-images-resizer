@@ -16,7 +16,7 @@ async function minify(inputFolder, outputFolder) {
 }
 
 function execute(inputFolder, outputFolder, options = {
-    allowedFormats: ['jpg', 'png', 'webp']
+    allowedFormats: ['jpg', 'png', 'webp', 'jpeg', "JPG", "JPEG", "PNG", "WEBP"]
 }) {
     const FORMATS_MINIFY = options.allowedFormats.join(",");
     const MINIFY_REGEXP = inputFolder + `/*.{${FORMATS_MINIFY}}`;
