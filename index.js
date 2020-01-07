@@ -14,21 +14,16 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
             }
         });
         minify(
-                inputFolder,
-                outputFolder,
-                (options = {
-                    allowedFormats: ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'],
-                }),
-            )
+            inputFolder,
+            outputFolder,
+            (options = {
+                allowedFormats: ['JPG', 'JPEG', 'PNG', 'WEBP'],
+            }),
+        )
             .then(() => {
                 let IMAGE_PATH_AND_NAMES = fs.readdirSync(outputFolder);
                 let imagePaths = [];
                 const ALLOWED_FORMATS = options.allowedFormats;
-                if (ALLOWED_FORMATS.indexOf('jpg') > -1 && ALLOWED_FORMATS.indexOf('jpeg') < 0) {
-                    ALLOWED_FORMATS.push('jpeg');
-                } else if (ALLOWED_FORMATS.indexOf('jpeg') > -1 && ALLOWED_FORMATS.indexOf('jpg') < 0) {
-                    ALLOWED_FORMATS.push('jpg');
-                }
                 let regExpString = '(';
                 for (let i = 0; i < ALLOWED_FORMATS.length; i++) {
                     if (ALLOWED_FORMATS[i][0] !== '.') {
@@ -39,7 +34,9 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
                     } else {
                         regExpString += `\\${ALLOWED_FORMATS[i]}`;
                     }
+                    console.log("ALLOWED_FORMATS[i]", ALLOWED_FORMATS[i])
                 }
+                debugger;
                 regExpString += ')$';
                 const IS_IMAGE_REGEXP = new RegExp(regExpString, 'i');
                 IMAGE_PATH_AND_NAMES = IMAGE_PATH_AND_NAMES.filter((name) => {

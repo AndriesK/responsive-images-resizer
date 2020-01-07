@@ -3,7 +3,8 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
 
 async function minify(inputFolder, outputFolder) {
-    return await imagemin([inputFolder], {
+    inputFolder = inputFolder.replace(/\\/g, "/");
+    await imagemin([inputFolder], {
         destination: outputFolder,
         plugins: [
             imageminMozjpeg(),
@@ -16,11 +17,11 @@ async function minify(inputFolder, outputFolder) {
     });
 }
 
-function execute(inputFolder, outputFolder, options = {
+async function execute(inputFolder, outputFolder, options = {
     allowedFormats: ['jpg', 'png', 'webp', 'jpeg', , 'JPG', 'JPEG', 'PNG', 'WEBP']
 }) {
     const FORMATS_MINIFY = options.allowedFormats.join(",");
-    const MINIFY_REGEXP = inputFolder + `/*.{${FORMATS_MINIFY}}`;
+    const MINIFY_REGEXP = inputFolder + `*.{${FORMATS_MINIFY}}`;
     return minify(MINIFY_REGEXP, outputFolder)
 }
 

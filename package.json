@@ -42,9 +42,12 @@
     "lib/IsDir.js"
   ],
   "dependencies": {
-    "imagemin": "^7.0.0",
+    "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "sharp": "^0.23.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0"
   }
 }
