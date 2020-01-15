@@ -4,3 +4,6 @@ build/
 .circleci
 test.js
 lib/jasmine_examples/
+input/
+output/
+test_input/

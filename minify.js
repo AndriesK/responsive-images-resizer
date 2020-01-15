@@ -4,7 +4,8 @@ const imageminPngquant = require('imagemin-pngquant');
 
 async function minify(inputFolder, outputFolder) {
     inputFolder = inputFolder.replace(/\\/g, "/");
-    await imagemin([inputFolder], {
+    console.log("INPUT", inputFolder);
+    return imagemin([inputFolder], {
         destination: outputFolder,
         plugins: [
             imageminMozjpeg(),
@@ -22,7 +23,8 @@ async function execute(inputFolder, outputFolder, options = {
 }) {
     const FORMATS_MINIFY = options.allowedFormats.join(",");
     const MINIFY_REGEXP = inputFolder + `*.{${FORMATS_MINIFY}}`;
-    return minify(MINIFY_REGEXP, outputFolder)
+
+    return await minify(MINIFY_REGEXP, outputFolder)
 }
 
 module.exports = execute;
