@@ -17,7 +17,6 @@ describe('Minify', async () => {
   let outputPath = path.resolve('./output');
 
   if (!(isDir(inputPath) && isDir(outputPath))) {
-    // return new Error('Input and Output folders do not exist');
     throw new Error('Input and/or Output folders do not exist');
   }
 
