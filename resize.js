@@ -60,13 +60,16 @@ class workImage {
 
 async function resize(absoluteNameArray, sizeArray) {
   let promDone = 0;
+  console.log('4444');
   return await new Promise((resolve, reject) => {
     if (typeof absoluteNameArray === 'string') {
       reject(
         'Please pass in all images mapped with paths instead of a directory!'
       );
     }
+    console.log('dfffff');
     for (let i = 0; i < absoluteNameArray.length; i++) {
+      console.log('yeee');
       const work = new workImage(absoluteNameArray[i], sizeArray);
       work
         .workImages()

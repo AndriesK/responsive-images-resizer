@@ -6,6 +6,9 @@ const fileBusy = require('./lib/fileBusy');
 
 function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
   return new Promise((resolve, reject) => {
+    if (!inputFolder || !outputFolder || !sizeArray) {
+      reject(new Error('Invalid arguments!'));
+    }
     sizeArray.map(res => {
       if (typeof res === 'string') {
         return res;
@@ -21,6 +24,8 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
       })
     )
       .then(() => {
+        console.log('321');
+
         let IMAGE_PATH_AND_NAMES = fs.readdirSync(outputFolder);
         let imagePaths = [];
         const ALLOWED_FORMATS = options.allowedFormats;
@@ -45,8 +50,10 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
         for (let i = 0; i < IMAGE_PATH_AND_NAMES.length; i++) {
           imagePaths.push(outputFolder + '/' + IMAGE_PATH_AND_NAMES[i]);
         }
+        console.log(':::');
         resize(imagePaths, sizeArray)
           .then(() => {
+            console.log('fff');
             const redundantFiles = fs.readdirSync(outputFolder);
             for (let j = 0; j < redundantFiles.length; j++) {
               if (
