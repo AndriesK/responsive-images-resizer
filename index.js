@@ -41,7 +41,6 @@ function minifyAndResize(inputFolder, outputFolder, sizeArray, options) {
           }
           console.log('ALLOWED_FORMATS[i]', ALLOWED_FORMATS[i]);
         }
-        debugger;
         regExpString += ')$';
         const IS_IMAGE_REGEXP = new RegExp(regExpString, 'i');
         IMAGE_PATH_AND_NAMES = IMAGE_PATH_AND_NAMES.filter(name => {
